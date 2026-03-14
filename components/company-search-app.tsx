@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 import {
@@ -178,8 +179,15 @@ export function CompanySearchApp({ companies }: Props) {
                 </a>
               </p>
             </div>
-            <div className="flex min-h-[220px] items-center justify-center rounded-[1.5rem] border border-dashed border-line bg-mist p-5 text-center text-sm text-slate-500">
-              Photo placeholder
+            <div className="flex min-h-[220px] items-center justify-center rounded-[1.5rem] border border-line bg-mist p-5">
+              <Image
+                alt="VisaFriendly NL hero sticker"
+                className="h-auto max-h-[320px] w-full object-contain"
+                height={1200}
+                priority
+                src="/hero-sticker.png"
+                width={1200}
+              />
             </div>
           </div>
         </section>
