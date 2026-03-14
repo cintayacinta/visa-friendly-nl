@@ -1,0 +1,46 @@
+{
+  "canonical_map": {
+    "Realestate": "RealEstate",
+    "Beverages": "Beverage",
+    "Biotech": "Biotechnology",
+    "Telecom": "Telecommunications"
+  },
+  "display_labels": {
+    "AI": "AI",
+    "ConsumerElectronics": "Consumer Electronics",
+    "Consumergoods": "Consumer Goods",
+    "Datacenter": "Data Center",
+    "Ecommerce": "Ecommerce",
+    "FinancialServices": "Financial Services",
+    "Healthtech": "Healthtech",
+    "IT": "IT",
+    "MarketResearch": "Market Research",
+    "Medtech": "Medtech",
+    "Nonprofit": "Nonprofit",
+    "RealEstate": "Real Estate",
+    "Telecommunications": "Telecommunications",
+    "Venture Capital": "Venture Capital"
+  },
+  "do_not_merge_examples": [
+    [
+      "Finance",
+      "FinancialServices"
+    ],
+    [
+      "Technology",
+      "Software"
+    ],
+    [
+      "AI",
+      "Software"
+    ],
+    [
+      "Services",
+      "Consulting"
+    ]
+  ],
+  "policy": "Only obvious spelling/formatting variants are canonicalized automatically.",
+  "review_candidates": {
+  },
+  "schema_version": 1
+}
