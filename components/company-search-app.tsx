@@ -422,10 +422,6 @@ export function CompanySearchApp({ companies }: Props) {
                         <dt className="font-medium text-ink">KVK</dt>
                         <dd>{formatFallback(company.kvk_number)}</dd>
                       </div>
-                      <div>
-                        <dt className="font-medium text-ink">Review flags</dt>
-                        <dd>{formatFallback(company.review_flags, "None")}</dd>
-                      </div>
                     </div>
                   </div>
 
