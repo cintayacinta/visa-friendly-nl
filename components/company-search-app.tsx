@@ -166,12 +166,11 @@ export function CompanySearchApp({ companies }: Props) {
                 Find officially-recognized work visa sponsor companies in the Netherlands
               </h1>
               <p className="max-w-2xl text-sm text-slate-600 md:text-base">
-                Start your journey toward working and living in the heart of Europe. VisaFriendly
-                NL is a personal project built to help you start your journey toward working and
-                living in the heart of Europe. While I&apos;ve tried to compile the information
-                carefully, the data may contain mistakes or become outdated. Please use your own
-                discretion and always verify visa sponsorship and job opportunities with official
-                sources and the companies themselves.
+                VisaFriendly NL is a personal project built to help you start your journey toward
+                working and living in the heart of Europe. While I&apos;ve tried to compile the
+                information carefully, the data may contain mistakes or become outdated. Please use
+                your own discretion and always verify visa sponsorship and job opportunities with
+                official sources and the companies themselves.
                 <br />
                 <br />
                 If you spot an error or have feedback, feel free to email me at
@@ -181,18 +180,8 @@ export function CompanySearchApp({ companies }: Props) {
                 </a>
               </p>
             </div>
-            <div className="rounded-[1.5rem] border border-line bg-mist p-5">
-              <p className="text-sm text-slate-600">Dataset status</p>
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl bg-white p-4">
-                  <div className="text-2xl font-semibold text-ink">{companies.length.toLocaleString()}</div>
-                  <div className="text-xs text-slate-500">Companies loaded</div>
-                </div>
-                <div className="rounded-2xl bg-white p-4">
-                  <div className="text-2xl font-semibold text-ink">{sortedCompanies.length.toLocaleString()}</div>
-                  <div className="text-xs text-slate-500">Matching results</div>
-                </div>
-              </div>
+            <div className="flex min-h-[220px] items-center justify-center rounded-[1.5rem] border border-dashed border-line bg-mist p-5 text-center text-sm text-slate-500">
+              Photo placeholder
             </div>
           </div>
         </section>
