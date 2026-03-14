@@ -24,14 +24,12 @@ const SORT_OPTIONS: Array<{ key: SortKey; label: string }> = [
 const INITIAL_FILTERS: CompanyFilters = {
   query: "",
   categories: [],
-  detailQuery: "",
-  details: [],
   city: "",
   province: "",
   hasWebsite: false,
   hasCareerUrl: false,
   hasCareerEmail: false,
-  sortKey: "display_name_clean",
+  sortKey: "best_opportunities",
   sortDirection: "asc",
 };
 
@@ -85,14 +83,9 @@ export function CompanySearchApp({ companies }: Props) {
   const [page, setPage] = useState(1);
 
   const debouncedQuery = useDebouncedValue(filters.query, 180);
-  const debouncedDetailQuery = useDebouncedValue(filters.detailQuery, 120);
 
   const categoryOptions = useMemo(
     () => uniqueSortedValues(companies, (company) => company.industry_category_clean),
-    [companies],
-  );
-  const detailOptions = useMemo(
-    () => uniqueSortedValues(companies, (company) => company.industry_detail_clean),
     [companies],
   );
   const cityOptions = useMemo(
@@ -104,22 +97,12 @@ export function CompanySearchApp({ companies }: Props) {
     [companies],
   );
 
-  const filteredDetailOptions = useMemo(() => {
-    const query = debouncedDetailQuery.trim().toLowerCase();
-    if (!query) {
-      return detailOptions;
-    }
-
-    return detailOptions.filter((detail) => detail.toLowerCase().includes(query));
-  }, [debouncedDetailQuery, detailOptions]);
-
   const filteredCompanies = useMemo(() => {
     return filterCompanies(companies, {
       ...filters,
       query: debouncedQuery,
-      detailQuery: debouncedDetailQuery,
     });
-  }, [companies, debouncedDetailQuery, debouncedQuery, filters]);
+  }, [companies, debouncedQuery, filters]);
 
   const sortedCompanies = useMemo(() => {
     return sortCompanies(filteredCompanies, filters.sortKey, filters.sortDirection);
@@ -136,10 +119,8 @@ export function CompanySearchApp({ companies }: Props) {
     setPage(1);
   }, [
     debouncedQuery,
-    debouncedDetailQuery,
     filters.categories,
     filters.city,
-    filters.details,
     filters.hasCareerEmail,
     filters.hasCareerUrl,
     filters.hasWebsite,
@@ -239,42 +220,6 @@ export function CompanySearchApp({ companies }: Props) {
                     <span>{category}</span>
                   </label>
                 ))}
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-ink" htmlFor="detail-query">
-                Industry detail
-              </label>
-              <input
-                id="detail-query"
-                className="w-full rounded-2xl border border-line bg-mist px-4 py-3 outline-none transition focus:border-fern"
-                onChange={(event) =>
-                  setFilters((current) => ({ ...current, detailQuery: event.target.value }))
-                }
-                placeholder="Search detail values..."
-                value={filters.detailQuery}
-              />
-              <div className="max-h-64 space-y-2 overflow-auto rounded-2xl border border-line bg-mist p-3">
-                {filteredDetailOptions.slice(0, 150).map((detail) => (
-                  <label className="flex items-start gap-3 text-sm text-slate-700" key={detail}>
-                    <input
-                      checked={filters.details.includes(detail)}
-                      className="mt-0.5 h-4 w-4 rounded border-line text-fern focus:ring-fern"
-                      onChange={() =>
-                        setFilters((current) => ({
-                          ...current,
-                          details: toggleValue(current.details, detail),
-                        }))
-                      }
-                      type="checkbox"
-                    />
-                    <span>{detail}</span>
-                  </label>
-                ))}
-                {filteredDetailOptions.length === 0 ? (
-                  <p className="text-sm text-slate-500">No detail values match this search.</p>
-                ) : null}
               </div>
             </div>
 

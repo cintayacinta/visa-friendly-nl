@@ -3,8 +3,6 @@ import type { CompanyRecord, SortKey } from "@/types/company";
 export type CompanyFilters = {
   query: string;
   categories: string[];
-  detailQuery: string;
-  details: string[];
   city: string;
   province: string;
   hasWebsite: boolean;
@@ -44,10 +42,6 @@ export function filterCompanies(
       filters.categories.length > 0 &&
       !filters.categories.includes(company.industry_category_clean)
     ) {
-      return false;
-    }
-
-    if (filters.details.length > 0 && !filters.details.includes(company.industry_detail_clean)) {
       return false;
     }
 

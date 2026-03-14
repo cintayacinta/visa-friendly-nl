@@ -4,3 +4,4 @@ output/
 nlcompanies.tsv
 .env
 .DS_Store
+.vercel
