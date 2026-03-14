@@ -161,13 +161,24 @@ export function CompanySearchApp({ companies }: Props) {
         <section className="overflow-hidden rounded-[2rem] border border-line bg-white/90 shadow-panel">
           <div className="grid gap-6 px-6 py-8 md:grid-cols-[1.2fr_0.8fr] md:px-8">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.22em] text-fern">Company Search</p>
+              <p className="text-sm uppercase tracking-[0.22em] text-fern">VisaFriendly NL</p>
               <h1 className="max-w-3xl text-4xl leading-tight text-ink md:text-5xl">
-                Search Dutch companies using the cleaned dataset, not the raw source rows.
+                Find officially-recognized work visa sponsor companies in the Netherlands
               </h1>
               <p className="max-w-2xl text-sm text-slate-600 md:text-base">
-                Filters run against cleaned fields for consistent search behavior. Result cards
-                still show original names and raw display values where that is more useful.
+                Start your journey toward working and living in the heart of Europe. VisaFriendly
+                NL is a personal project built to help you start your journey toward working and
+                living in the heart of Europe. While I&apos;ve tried to compile the information
+                carefully, the data may contain mistakes or become outdated. Please use your own
+                discretion and always verify visa sponsorship and job opportunities with official
+                sources and the companies themselves.
+                <br />
+                <br />
+                If you spot an error or have feedback, feel free to email me at
+                {" "}
+                <a className="text-fern underline-offset-2 hover:underline" href="mailto:hello.lovecinta@gmail.com">
+                  hello.lovecinta@gmail.com
+                </a>
               </p>
             </div>
             <div className="rounded-[1.5rem] border border-line bg-mist p-5">
