@@ -32,6 +32,4 @@ export type CompanyRecord = {
 
 export type SortKey =
   | "display_name_clean"
-  | "city_clean"
-  | "province_clean"
-  | "industry_category_clean";
+  | "best_opportunities";

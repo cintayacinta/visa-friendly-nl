@@ -16,10 +16,8 @@ type Props = {
 };
 
 const SORT_OPTIONS: Array<{ key: SortKey; label: string }> = [
-  { key: "display_name_clean", label: "Display name" },
-  { key: "city_clean", label: "City" },
-  { key: "province_clean", label: "Province" },
-  { key: "industry_category_clean", label: "Industry category" },
+  { key: "display_name_clean", label: "Company name" },
+  { key: "best_opportunities", label: "Best opportunities" },
 ];
 
 const INITIAL_FILTERS: CompanyFilters = {

@@ -80,20 +80,53 @@ export function sortCompanies(
   sortKey: SortKey,
   sortDirection: "asc" | "desc",
 ): CompanyRecord[] {
-  const direction = sortDirection === "asc" ? 1 : -1;
+  const scoreCompanyOpportunity = (company: CompanyRecord): number => {
+    let score = 0;
+
+    if (company.career_url_clean) {
+      score += 3;
+    }
+
+    if (company.career_email_clean) {
+      score += 2;
+    }
+
+    if (company.website_url_clean) {
+      score += 1;
+    }
+
+    if (company.city_clean && company.province_clean) {
+      score += 1;
+    }
+
+    if (company.industry_category_clean) {
+      score += 1;
+    }
+
+    return score;
+  };
 
   return [...companies].sort((left, right) => {
-    const leftValue = left[sortKey] || "";
-    const rightValue = right[sortKey] || "";
-    const compare = leftValue.localeCompare(rightValue, undefined, {
+    if (sortKey === "best_opportunities") {
+      const leftScore = scoreCompanyOpportunity(left);
+      const rightScore = scoreCompanyOpportunity(right);
+      const scoreCompare =
+        sortDirection === "asc" ? rightScore - leftScore : leftScore - rightScore;
+
+      if (scoreCompare !== 0) {
+        return scoreCompare;
+      }
+
+      return left.display_name_clean.localeCompare(right.display_name_clean, undefined, {
+        sensitivity: "base",
+      });
+    }
+
+    const compare = left.display_name_clean.localeCompare(right.display_name_clean, undefined, {
       sensitivity: "base",
     });
 
-    if (compare !== 0) {
-      return compare * direction;
-    }
-
-    return left.display_name_clean.localeCompare(right.display_name_clean) * direction;
+    return compare * (sortDirection === "asc" ? 1 : -1);
   });
 }
 
