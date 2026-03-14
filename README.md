@@ -13,6 +13,8 @@ Feedback is welcome at: hello.lovecinta@gmail.com
 
 This project now includes a Next.js + TypeScript + Tailwind app that consumes [output/cleaned_companies.tsv](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/output/cleaned_companies.tsv) directly. Search and filters use cleaned fields, while result cards show original display values where useful.
 
+The raw input file `nlcompanies.tsv` is intentionally kept local and is not tracked in the public repository. Generate the app dataset locally by running `python3 scripts/clean_companies.py`.
+
 ## App Features
 
 - Full-text search across `display_name_clean`, `legal_name_clean`, `city_clean`, `province_clean`, `industry_category_clean`, and `industry_detail_clean`
@@ -38,6 +40,7 @@ This project now includes a Next.js + TypeScript + Tailwind app that consumes [o
 
 ```bash
 npm install
+python3 scripts/clean_companies.py
 npm run dev
 ```
 
@@ -45,9 +48,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Data Workflow
 
-1. Edit [config/category_mapping.json](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/config/category_mapping.json) when you want persistent category mapping changes.
-2. Run `python3 scripts/clean_companies.py`.
-3. Run `npm run dev`.
-4. Inspect the regenerated files in [output](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/output) and verify the app behavior against the cleaned dataset.
+1. Place your local raw input file at `nlcompanies.tsv`.
+2. Edit [config/category_mapping.json](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/config/category_mapping.json) when you want persistent category mapping changes.
+3. Run `python3 scripts/clean_companies.py`.
+4. Run `npm run dev`.
+5. Inspect the regenerated files in [output](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/output) and verify the app behavior against the cleaned dataset.
 
 The app does not rebuild the cleaning pipeline. It reads [output/cleaned_companies.tsv](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/output/cleaned_companies.tsv) as-is.

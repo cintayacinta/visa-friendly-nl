@@ -1,5 +1,6 @@
 node_modules/
 .next/
 output/
+nlcompanies.tsv
 .env
 .DS_Store
