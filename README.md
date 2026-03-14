@@ -1,5 +1,16 @@
 # Company Search App
 
+# VisaFriendly NL
+
+VisaFriendly NL is a searchable directory of Dutch companies that may be relevant for international job seekers looking for visa sponsorship opportunities.
+
+This project compiles publicly available information about organizations associated with the Netherlands recognized sponsor system and provides tools to explore their websites, career pages, and contact details.
+
+⚠️ This is a personal project and may contain errors. Always verify sponsorship eligibility and job openings with official sources and company websites.
+
+Feedback is welcome at: hello.lovecinta@gmail.com
+
+
 This project now includes a Next.js + TypeScript + Tailwind app that consumes [output/cleaned_companies.tsv](/Users/yacintashafira/Documents/Vibe%20coding/VisaFriendly%202/output/cleaned_companies.tsv) directly. Search and filters use cleaned fields, while result cards show original display values where useful.
 
 ## App Features
